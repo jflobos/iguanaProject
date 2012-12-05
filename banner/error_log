@@ -1,0 +1,4 @@
+[12-Oct-2012 15:03:07 UTC] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home/ideapais/public_html/dev/banner/slider.php on line 36
+[12-Oct-2012 15:03:22 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ideapais/public_html/dev/banner/slider.class.php on line 21
+[12-Oct-2012 15:06:53 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/ideapais/public_html/dev/banner/slider.php on line 42
+[16-Oct-2012 14:49:17 UTC] PHP Parse error:  syntax error, unexpected T_STRING in /home/ideapais/public_html/dev/banner/slider.php on line 52

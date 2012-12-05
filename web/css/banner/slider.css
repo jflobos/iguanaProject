@@ -1,0 +1,155 @@
+html{
+    overflow-x: visible;
+}
+
+body{
+    overflow-x: visible;
+}
+
+@font-face {
+    font-family: libelsuit;
+    src: url("../fonts/libelsuit.eot"); /* EOT for IExplorer */ 
+}
+
+@font-face {
+    font-family: libelsuit;  
+    src: url("../fonts/libelsuit.ttf");  
+}
+
+@font-face {
+    font-family: arnoPro;  
+    src: url("../fonts/ArnoPro.eot");  
+}
+
+@font-face {
+    font-family: arnoPro;  
+    src: url("../fonts/arnopro.otf") format("opentype");  
+}
+
+/* Gallery styles */
+
+#gallery{	
+    /* The width of the gallery */
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;		
+}
+
+#slides{
+    /* This is the slide area */	
+    clear: none;
+    /* jQuery changes the width later on to the sum of the widths of all the slides. */
+    width: 1240px;	
+    overflow-x: visible;
+    position: relative;
+    float: left;
+}
+
+.slide_text_element{
+    width: 250px;
+    height: 250px;
+    float: left;
+    position: relative;
+}
+
+.slide_img_container{
+    float: left;
+    overflow-x: visible;
+    border: solid 5px #000;
+}
+
+.slide_text_element{	
+    margin-top: 36px;
+    color: white;
+    position: relative;
+    border-top: solid 5px #000;
+    border-bottom: solid 5px #000;	
+}
+.slide_wrapper_text{
+    
+}
+
+.slide_text_element_titulo{
+    position: absolute;
+    font-family: libelsuit, verdana, helvetica, sans-serif;	
+    font-size: 28px;	
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 28px;
+    text-align: left;
+    top: 10px;
+}
+
+.slide_text_element_bajada{
+    position: absolute;
+    font-family: arnoPro, verdana, helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    text-align: left;
+    bottom: 10px;
+}
+
+.slide{
+    float: left;
+    overflow-x: visible;	
+}
+
+.slide_img_wrapper{	
+    border: solid 5px #000;
+    height: 300px;
+}
+
+.slide_img_container{
+    border: solid 5px #000;
+    padding: 5px;
+}
+
+.slide_shift{
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    background-color: #CCC;
+    width: 50px;
+    opacity:0.4;	
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+    display: none; 
+}
+
+.slide_img_box{
+    position: relative;	
+}
+
+.slide_shift img{
+    margin-top: 151px; 	
+}
+
+.right{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    right: 0px;
+    padding-right: 10px;
+}
+
+.left{	
+    left: 0px;		
+}
+
+.point_trick{
+    height: 1px;
+    width: 1px;
+    clear: both;
+}
+
+.image_center{
+    height: 300px;
+    width: 1028px;
+}

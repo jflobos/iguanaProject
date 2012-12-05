@@ -1,0 +1,28 @@
+/* 
+    Document   : baseElements
+    Created on : 26-11-2012, 03:05:51 PM
+    Author     : Ico
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#modal_layer{
+    position: fixed; top:0; bottom: 0; left: 0; right: 0; height: 100%; width: 100%; background-color: black; z-index: 1000;opacity: 0.9; filter: alpha(opacity=90);
+}
+
+#modal_component{
+    position: fixed; top:2%; left: 10%; width: 80%; height: 95%; opacity: 1; filter: alpha(opacity=1); z-index: 1001; border: 2px black solid;
+}
+
+#modal_element_container_contenido{
+    text-align: center;
+}
+
+#modal_element_action_cerrar{
+    position: absolute; right: 0px; top: 0px; cursor: pointer;
+}

@@ -1,0 +1,271 @@
+@font-face {
+  font-family: BebasNeue;  
+  src: url("../fonts/BebasNeue.eot");  
+}
+
+/* Para el Resto de los navegadores del mercado */
+@font-face {
+  font-family: BebasNeue;  
+  src: url("../fonts/BebasNeue.otf") format("opentype");  
+}
+#opinion_publica{
+    position: relative;
+    width: 1278px;
+    height: 530px;
+    background-image: url('images/cuadernoTile.png');
+    background-repeat: repeat;
+}
+.volver_action{
+    position: absolute;
+    font-family: BebasNeue;
+    font-size: 33px;
+    right: 30px;
+    border: 1px solid black;
+    background-color: rgb(213,211,200);
+    height: 40px;
+    width: 130px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+}
+.volver_action img{
+    max-width: 40px;
+    margin-left: 10px;
+}
+.volver_action_superior{
+    top: 0px
+}
+.volver_action_inferior{
+    bottom: 0px
+}
+
+
+#persona_opinion_publica{
+    position: absolute;
+    bottom: 0px;
+    left: 900px;
+}
+.rayo{
+    position: absolute;
+    right: 350px;
+    z-index: 1;
+}
+.rayo img{
+     max-width: 500px;
+}
+#rayo_1{
+    top: 35px;
+    right: 350px;
+}#rayo_2{
+    top: 120px;
+    right: 350px;
+}
+#rayo_3{
+    top: 160px;    
+}
+#rayo_3 img{
+    max-width: 350px;
+}
+
+#menu_central_opinion_publica{
+    position: absolute;
+    display: block;
+    left: 20px;
+    top: 150px;
+}
+
+.menu_central_item_titulo{    
+    max-height: 90px;
+    left: 80px;
+}
+
+.flecha_negra_menu{    
+    max-height: 60px;
+    top: 15px;    
+}
+.menu_central_item_action{
+    position: relative;
+}
+.menu_central_item_action img{        
+    position: absolute;
+}
+.menu_central_item_action{
+    height: 100px;
+    cursor: pointer;
+}
+.sub_menu_central{
+    height: 350px;
+    width: 310px;
+    top: 130px;
+    left: 100px;
+    position: absolute;
+    z-index: 8;
+    color: white;
+    font-family: BebasNeue;
+    display: none;
+    font-size: 50px;
+}
+.sub_menu_central img{
+    max-width: 40px;
+    margin-right: 20px;
+}
+.sub_menu_item{
+    cursor: pointer;
+}
+
+.sub_menu_item_salida{
+    margin-top: 50px;
+}
+
+/*
+    Modulo de videos de producciones IP
+*/
+
+#contenedor_producciones_videos{
+    display: none;
+}
+
+.titulo_contenedor_videos{
+    position: absolute;
+    top: 20px;
+    left: 495px;
+}
+.titulo_contenedor_videos .cinta{
+    position: absolute;
+    max-width: 300px;    
+}
+
+.titulo_contenedor_videos .titulo_sobre_cinta{
+    position: absolute;    
+    max-width: 170px;
+    left: 65px;
+    top: 5px;
+}
+
+#wrapper_producciones_videos{
+    position: absolute;
+    top: 120px;
+    z-index: 10;
+}
+
+.video_producciones_list{
+    position: relative;
+    width: 400px;
+    float: left;    
+    margin-left: 20px;    
+}
+
+.titulo_lista_video_producciones{
+    position: relative;
+    margin-left: 50px;
+}
+.titulo_lista_video_producciones_ticket{    
+    max-width: 300px;    
+}
+.titulo_lista_video_producciones_titulo_lista{
+    position: absolute;
+    width: 245px;
+    height: 80px;
+    left: 30px;
+    top: 5px;
+    color: white;
+    font-family: BebasNeue;
+    font-size: 30px;
+    text-align: center;
+}
+.video_container{
+    width: 360px;
+    border: 1px black solid;
+    margin-top: 20px;
+    background-color: #DCDFE2;
+    margin-left: 20px;
+}
+
+.video_container .thumbnail_wrapper{
+    background-color: white;    
+}
+.video_produccion_thumbnail{
+    max-width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.video_produccion_info{
+    background-color: #DCDFE2;
+    height: 100px;
+}
+.video_produccion_info_titulo{
+    font-family: BebasNeue;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.video_produccion_info_decripcion{
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.video_produccion_thumbnail{
+    cursor: pointer;
+}
+.infografia_producciones_list{
+    position: relative;
+    width: 400px;
+    float: left;    
+    margin-left: 20px;
+}
+.infografia_container{
+    width: 360px;
+    border: 1px black solid;
+    margin-top: 20px;
+    background-color: #DCDFE2;
+    margin-left: 20px;
+}
+
+.infografia_container .thumbnail_wrapper{
+    background-color: white;    
+}
+.infografia_produccion_thumbnail{
+    max-width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.infografia_produccion_info{
+    background-color: #DCDFE2;
+    height: 100px;
+}
+.infografia_produccion_info_titulo{
+    font-family: BebasNeue;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.infografia_produccion_info_decripcion{
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.infografia_produccion_thumbnail{
+    cursor: pointer;
+}
+
+#wrapper_producciones_infografias{
+    position: absolute;
+    top: 120px;
+    z-index: 10;
+}
+.titulo_seccion_infografia{
+    position: absolute;
+    max-width: 260px;
+    left: 20px;
+    top: 5px;
+}
+
+.iframe_infografia_viewer{
+    overflow: hidden;
+}

@@ -1,0 +1,548 @@
+/* 
+    Document   : formacion
+    Created on : 05-11-2012, 11:49:15 AM
+    Author     : Ico
+    Description: Documento de hoja de estilos para el widget de Cursos del area de formacion de IdeaPais        
+*/
+
+@charset "UTF-8";
+
+/* Cargado de  fonts especiales*/
+
+/* Para IExplorer */
+@font-face {
+  font-family: BebasNeue;  
+  src: url("../fonts/BebasNeue.eot");  
+}
+@font-face {
+  font-family: ArnoPro;  
+  src: url("../fonts/arnopro.eot");  
+}
+
+/* Para el Resto de los navegadores del mercado */
+@font-face {
+  font-family: BebasNeue;  
+  src: url("../fonts/BebasNeue.otf") format("opentype");  
+}
+@font-face {
+  font-family: ArnoPro;  
+  src: url("../fonts/arnopro.otf") format("opentype");  
+}
+/* Fin del cargado de fonts */
+
+/* Inicio de los estilos para los elementos del menu central del plugin */
+#curso{
+    position: relative;
+    width: 1278px;	
+    height: 530px;
+    z-index: 1;
+}
+.fondo_curso{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: block;	
+    height: 100%;
+    z-index: 1;    
+}
+.titulo_curso{
+    position: absolute;
+    left: 540px;
+    top: 13px;
+    max-height: 50px;
+    z-index: 1;
+}
+.icono_silla{
+    max-height: 80px;
+    position: absolute;
+    display: block;
+    z-index: 2;
+}
+
+.indicador_curso{
+    max-height: 90px;
+    position: absolute;
+    top: 178px;
+    z-index: 8;
+}
+
+.indicador_curso_1{
+    left: 329px;
+}
+
+.indicador_curso_2{
+    left: 576px;
+}
+
+.indicador_curso_3{
+    left: 810px;
+}
+
+.silla_1{
+    left: 280px;
+    top: 260px;
+    max-height: 107px;
+}
+.silla_2{
+    left: 397px;
+    top: 248px;
+    max-height: 72px;
+}
+.silla_3{
+    left: 558px;
+    top: 271px;
+    max-height: 109px;
+}
+.silla_4{
+    left: 660px;
+    top: 213px;
+    max-height: 114px;
+}
+.silla_5_1{
+    left: 760px;
+    top: 319px;
+    max-height: 83px;
+}
+.silla_5_2{
+    left: 803px;
+    top: 331px;
+    max-height: 84px;
+}
+.silla_5_3{
+    left: 859px;
+    top: 319px;
+    max-height: 83px;
+}
+.silla_5_4{
+    left: 804px;
+    top: 225px;
+    max-height: 83px;
+}
+.silla_6{
+    left: 913px;
+    top: 252px;
+    max-height: 66px;
+}
+.circulo_botones{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    position: absolute;
+    left: 60px;
+    top: 17px;
+    background-color: #CCC;
+}
+.indicador_texto_curso{
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    color: rgb(19,177,159);
+    text-align: center;
+    top: 130px;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 20px;	
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    line-height: 15px;
+    z-index: 3;
+}
+.indicador_texto_curso_1{
+	left: 249px;
+}
+.indicador_texto_curso_2{
+	left: 484px;
+}
+.indicador_texto_curso_3{
+	left: 720px;	
+}
+.flecha_action{
+	position: absolute;
+	max-height: 50px;
+	left: 50px;
+	z-index: 3;
+}
+.flecha_expositores{	
+	top: 29px;
+}
+.flecha_plan_formacion{	
+	top: 83px;
+}
+.texto_action_cursos{
+	position: absolute;
+	position: absolute;
+	color: white;
+	text-align: left;
+	left: 105px;
+	font-variant: small-caps;
+	font-size: 37px;	
+	font-family: BebasNeue,"Trebuchet MS", Helvetica, sans-serif;
+	line-height: 24px;
+	z-index: 3;
+}
+.texto_expositores_action{
+	top: 54px
+}
+.texto_plan_de_formacion_action{
+	top: 100px
+}
+/* Fin de los Comentarios del menu central del widget */
+
+/* Inicio de los estilos para el Submenu del detalle de cursos */
+
+#curso_container{
+	z-index: 10;
+	position: absolute;
+	background-color: white;
+	border: solid 5px #646464;
+	width: 700px;
+	padding: 30px;
+        top: 100px;
+        left: 250px;
+        font-family: 'Playfair Display', "Trebuchet MS", Helvetica, sans-serif;
+        color: #444;
+        font-size: 12px;
+}
+#curso_info{
+	float: left;	
+        width: 450px;
+}
+.detalle_curso{
+	z-index: 11;
+}
+.titulo_descripcion_curso{
+	color: rgb(19,177,159);
+	text-align: left;	
+	font-variant: small-caps;
+	font-size: 37px;
+	font-family: BebasNeue,"Trebuchet MS", Helvetica, sans-serif;	
+	text-align: left;
+}
+.datos_valor_curso{
+	color: black;
+	text-align: left;			
+}
+.datos_lugar_curso{
+	color: black;
+	text-align: left;		
+}
+.cuerpo_descripcion_curso{		
+	color: black;
+	text-align: justify;	
+}
+.sesiones_curso{
+    
+}
+.titulo_sesion{
+    margin-top: 15px;
+}
+.expositores_sesion{
+    color: rgb(19,177,159);
+}
+.fecha_sesion{
+    color: rgb(19,177,159);
+}
+.secciones_curso{
+    float: right;	
+}
+#boton_descripcion_curso{
+	
+}
+#boton_sesiones_curso{
+	
+}
+#boton_sesiones_curso{
+	
+}
+.boton_menu_cursos img{
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+.img_volver{
+    max-height: 40px;
+    float: right;
+    margin-top: 6px;
+}
+.secciones_menu_boton_volver{
+    max-height: 50px;
+    color: #13B19F;
+    text-align: left;
+    font-variant: small-caps;
+    font-size: 40px;
+    font-family: BebasNeue,"Trebuchet MS", Helvetica, sans-serif;
+    text-align: left;
+    float: right;
+    margin-right: 10px;
+}
+.point_trick{
+	height: 1px;
+	width: 1px;
+	clear: both;
+}
+
+/* Para tinyscrollbar */
+
+.content { width: 450px; height: 261px; clear: both; margin: 1px 0 10px; }
+.content .viewport { width: 365px; height: 261px; overflow: hidden; position: relative; }
+.content .overview { list-style: none; position: absolute; left: 0; top: 0; }
+.content .thumb .end,
+.content .thumb { background-color: rgb(19,177,159);}
+.content .scrollbar { position: relative; float: right; width: 15px; }
+.content .track { background-color: #FFFFFF; height: 100%; width:13px; position: relative; padding: 0 1px; }
+.content .thumb { height: 20px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+.content .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+.content .disable{ display: none; }
+
+/* Fin del submenu para detalle de cursos */
+
+/* Inicio de menu de expositores */
+
+#expositores_container{
+    z-index: 10;
+    position: absolute;
+    background-color: white;
+    border: solid 5px #646464;
+    width: 1268px;
+    height: 315px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    top: 165px;
+    left: 0px;
+    font-family: 'Playfair Display', "Trebuchet MS", Helvetica, sans-serif;
+    color: #444;
+    font-size: 12px;
+    overflow-x: hidden;
+    color: white;
+}
+.expositores_wrapper{    
+    position: absolute; 
+}
+.expositor_frame{
+    z-index: 11;
+    float: left;
+    margin-left: 10px;    
+    width: 150px;
+    height: 230px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #CCC;
+    margin-top: 15px;
+}
+.expositor_foto{
+    z-index: 12;
+    max-height: 120px;
+    margin-left: 10px;
+}
+.expositor_nombre{    
+    font-family: BebasNeue,"Trebuchet MS", Helvetica, sans-serif;
+    font-size: 17px;
+    margin-top: 10px;
+}
+.expositor_estudios{
+    font-size: 11px;
+}
+
+#left_bottom_container{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 275px;
+    width: 35px;
+    opacity:0.4;	
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+    background-color: gray;    
+}
+#left_bottom_container img{
+    margin-top: 135px;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);  
+    margin-left: 5px;
+}
+#right_bottom_container{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 275px;
+    width: 35px;
+    opacity:0.4;	
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+    background-color: gray;
+}
+#right_bottom_container img{
+    margin-top: 135px;
+    margin-left: 5px;
+}
+.boton_volver_expositores{    
+}
+
+/* Fin de Expositores */
+
+/* Inicio de Plan de Formacion */
+
+#plan_de_formacion_container{
+    z-index: 10;
+    border: 5px black solid;
+    width: 600px;
+    height: 370px;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    background-color: white;
+}
+
+#videos_plan_de_formacion_container{
+    z-index: 10;
+    border: 5px black solid;
+    width: 620px;
+    height: 370px;
+    position: absolute;
+    top: 70px;
+    left: 640px;
+    background-color: gray;
+}
+
+#volver_videos_plan_de_formacion{
+    z-index: 10;
+    position: absolute;
+    top: 455px;
+    left: 1195px;
+}
+
+#volver_videos_plan_de_formacion img{
+    max-width: 70px;
+    cursor: pointer;
+}
+
+/*Reproductor de video embebido de youtube*/
+
+.video_player_wrapper{
+    padding: 10px;
+    float: left;
+    width: 420px;
+    height: 280px;    
+    background-color: gray;
+}
+.video_player{
+  border-radius: 10px;
+  border: solid white 8px;
+  width: 400px;
+  height: 244px;
+  margin-top: 9px;
+  background-color: black;
+}
+
+.titulo_video_element{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 9px;
+    text-align: center;
+    text-transform: capitalize;
+    background-color: white;
+    height: 30px;
+}
+
+/*Menu de eleccion de video*/
+
+.video_select_container{ 
+    width: 175px;
+    height: 370px;
+    float: left;
+    background-color: white;    
+    clear:  none;
+    margin: 0;    
+}
+
+.video_select_element{
+    position: relative;
+    padding-top: 20px;        
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;    
+    height: 130px;
+    width: 120px;    
+    float: left;
+    line-height: 8px;
+}
+
+.video_active_layer{
+    background-color: rgba(248, 247, 216, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.video_cinta_derecha{
+    width: 20px;    
+    background-image: url('images/cinta_der.png');
+    background-repeat-y: repeat;
+    float: left;
+}
+
+.video_select_wrapper{
+    float: left;
+    width: 120px;
+}
+
+.video_cinta_izquierda{
+    width: 20px;    
+    background-image: url('images/cinta_izq.png');
+    background-repeat-y: repeat;
+    float: left;
+}
+
+.video_select_element img{
+    max-height: 90px;
+    max-width: 120px;
+    cursor: pointer;
+}
+
+.video_select_container .viewport{
+    width: 160px;
+    height: 370px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+
+.content .overview_videos_formacion{
+    position: relative;    
+}
+
+.content .videos_formacion{
+    
+}
+
+.cinta_video .track{
+    background-color: gray;
+    width: 20px;
+}
+
+.cinta_video .thumb{
+    background-color: black;
+    width: 20px;
+}
+
+.cinta_video .thumb .end{
+    background-color: black;
+    width: 20px;
+}
+
+
+.titulo_seccion_video{
+    text-transform: uppercase;
+    color: white;
+    font-family: BebasNeue,"Trebuchet MS", Helvetica, sans-serif;
+    font-variant: small-caps;
+    font-size: 35px;
+}
+
+.titulo_video{
+    color: white;
+    font-family: BebasNeue,"Trebuchet MS", Helvetica, sans-serif;
+    font-variant: small-caps;
+    font-size: 23px;
+}

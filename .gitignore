@@ -1,0 +1,5 @@
+#Cache y Log#
+log/*
+cache/*
+uploads/*
+nbproject

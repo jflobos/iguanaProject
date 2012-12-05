@@ -1,0 +1,159 @@
+/* 
+    Document   : hazteParte
+    Created on : 16-11-2012, 10:53:28 AM
+    Author     : Ico
+    Description:
+        Purpose of the stylesheet follows.
+*/
+@font-face {
+  font-family: BebasNeue;  
+  src: url("../fonts/BebasNeue.eot");  
+}
+
+/* Para el Resto de los navegadores del mercado */
+@font-face {
+  font-family: BebasNeue;  
+  src: url("../fonts/BebasNeue.otf") format("opentype");  
+}
+
+#hazte_parte{
+    position: relative;
+    width: 1278px;	
+    height: 530px;
+    z-index: 1;    
+}
+
+.fondo_hazte_parte{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: block;	
+    height: 100%;
+    z-index: 1;
+}
+
+.titulo_forma_parte{
+    position: absolute;
+    left: 790px;
+    top: 80px;
+    z-index: 2;
+    max-height: 210px;
+}
+
+.titulo_evento{
+    position: absolute;
+    left: 100px;
+    top: 390px;
+    z-index: 2;
+    max-height: 100px;
+}
+
+.flecha_blanca{
+    position: absolute;
+    left: 270px;
+    top: 410px;
+    z-index: 2;
+    max-height: 65px;
+}
+
+.formulario_hazte_parte{
+    position: absolute;
+    left: 175px;
+    top: 35px;
+    width: 455px;
+    height: 300px;
+    z-index: 3;    
+    padding: 10px;
+}
+
+.formulario_hazte_parte_background{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    background-color: white;
+    border: solid black 1px;
+    filter: alpha(opacity=44);
+    opacity: 0.44;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.formulario_input{
+    position: relative;
+    width: 455px;
+    margin-top: 5px;    
+    opacity: 1;
+    z-index: 3;
+    font-family: Trebuchet;
+}
+.evento_action{
+    position: absolute;    
+    z-index: 5;
+    cursor: pointer;
+    top: 395px;
+}
+.evento_0{    
+    left: 400px;
+}
+
+.evento_1{    
+    left: 800px;
+}
+
+.imagen_participa{
+    max-width: 200px;
+    position: absolute;
+    z-index: 6;
+    display: none;
+}
+
+.imagen_participa{    
+    top: 20px;
+    left: 55px;
+}
+
+.imagen_evento{
+    max-width: 350px;
+}
+
+/* Modal box con form para cada evento */
+
+.modal_box_evento{
+    width: 330px;
+    height: 375px;
+    position: absolute; 
+    z-index: 10;
+    background-color: whitesmoke;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    
+}
+.modal_box_evento_0{
+    left: 400px;
+    top:    0px;
+}
+.modal_box_evento_1{
+    left: 800px;
+    top:    0px;
+}
+
+.formulario_input_evento{
+    width: 330px;
+    font-family: Trebuchet;
+}
+
+.titulo_modal_box_evento{
+    font-family: BebasNeue,"Trebuchet MS", Helvetica, sans-serif;
+    font-size: 33px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.boton_participa_formulario_evento img{
+    max-width: 200px;            
+    margin-top: 20px;
+    margin-left: 60px;
+}
