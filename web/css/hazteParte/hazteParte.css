@@ -18,9 +18,11 @@
 
 #hazte_parte{
     position: relative;
-    width: 1278px;	
+    width: 1214px;	
     height: 530px;
     z-index: 1;    
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .fondo_hazte_parte{

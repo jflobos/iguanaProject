@@ -45,7 +45,7 @@ var opinionPublica = ( function(){
                     initMenuPrensa();
                     break;
                 case 'noticias':
-                    initModuleNoticias();
+                    //initModuleNoticias();
                     break;
                 case 'producciones':
                     initMenuProducciones();
@@ -164,9 +164,12 @@ var opinionPublica = ( function(){
         $('#contenedor_producciones_infografias').fadeIn(animateTime);
         addBotonesVolver();
         $('.volver_action').click(function(){
+            if($(this).hasClass('volver_action_inferior')){
+                Scroller.scrollToElement('#opinionPublica');
+            }
             $('#contenedor_producciones_infografias').fadeOut(500, function(){
                 $('#contenedor_producciones_infografias').remove();
-                $('.volver_action').fadeOut(500,function(){
+                $('.volver_action').fadeOut(500,function(){                    
                     $('.volver_action').remove();
                 });
             });            
@@ -213,7 +216,7 @@ var opinionPublica = ( function(){
         addBotonesVolver();
         $('.volver_action').click(function(){
             $('#contenedor_producciones_videos').remove();
-             $('.volver_action').remove();
+            $('.volver_action').remove();
             showCentralElements();
         });
     }

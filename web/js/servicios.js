@@ -1,3 +1,37 @@
+/*
+ *
+ */
+var Scroller = (function (){
+    //variables publicas    
+    //metodos privados
+    //Realiza un Scroll en base a un hash dado
+    var scrollToHash = function scrollToHash(hash){
+        var hash = (hash != undefined) ? hash:'';
+        var destination = (hash != '' && hash != '#header') ? $(hash).offset().top:0;
+        console.log(destination);
+        stopAnimatedScroll();
+        $('html, body').stop().animate({ 
+            scrollTop: destination
+        }, 400, 
+        function() { 
+            window.location.hash = hash; 
+        });
+        return false;
+    }
+    var stopAnimatedScroll = function stopAnimatedScroll(){
+        if ( $('*:animated').length > 0 ) { $('*:animated').stop(); }
+    }    
+    //Metodos publicos
+    return{
+        scrollToElement: function scrollToElement(hash){            
+            scrollToHash(hash);
+        }        
+    }
+})();
+
+/*
+ * Intefaz para cargar los videos de Youtube
+ */
 var YoutubeAPI = (function (){
     var videos;
     //Metodos privados

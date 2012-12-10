@@ -18,7 +18,7 @@
             var src;
             $(window).load(function(){
                 var theImage = new Image();
-                imageSRC = '<?php echo '../infografia/'.$infografiaFile ?>';
+                imageSRC = '<?php echo '../images/infografia/'.$infografiaFile ?>';
                 var imageHeight;
                 loadSprite(imageSRC, function() {
                     theImage.src = imageSRC;                
