@@ -72,8 +72,29 @@ var Equipo = (function(){
             $('.integrante').hover();
             $(".integrante").css('background-color','');			
             clases = $(this).attr('class').split(' ');		
-            $('.'+clases[1]).css('background-color',equipo.colores[clases[1]]);		
+            $('.'+clases[1]).css('background-color',colores[clases[1]]);		
         });	
+    }
+    var agregarInformacion = function agregarInformacion(container, integrante){
+        container.append('<div class="curriculo_informacion"></div>');                
+        $('.curriculo_informacion').append('<div class="titulo_direccion titulo_'+integrante.clase+'">'+integrante.direccion+'</div>');
+        $('.curriculo_informacion').append('<div class="curriculo_datos"></div>');
+        $('.curriculo_datos').append('<div class="curriculo_datos_nombre">'+integrante.nombre+'</div>');
+        $('.curriculo_datos').append('<div class="curriculo_datos_cargo">'+integrante.cargo+'</div>');
+        $('.curriculo_datos').append('<div class="curriculo_datos_extra"><a mailto="'+integrante.mail+'">'+integrante.mail+'</a></div>');
+        var twitter = "";
+        if(integrante.twitter != "")
+            twitter = integrante.twitter;		
+        else
+            twitter = 'ideapais';
+        $('.curriculo_datos').append('<div class="curriculo_datos_extra"><a href="http://www.twitter.com/'+twitter+'">@'+twitter+'</div>');
+        $('.curriculo_informacion').append('<div class="point_trick"></div>');
+    }
+    var agregarBiografia = function agregarBiografia(container, integrante){
+        container.append('<div class="bloque_biografia"></div>');        
+        $('.bloque_biografia').append('<div class="imagen_datos"><img src="images/media/'+integrante.foto+'"></img></div>');                
+        $('.bloque_biografia').append('<div class="curriculo_text_curriculum">'+integrante.curriculum+'</div>');
+        $('.bloque_biografia').append('<div class="point_trick"></div>');
     }
     return {
         grayscale: function grayscale(src){
@@ -101,21 +122,10 @@ var Equipo = (function(){
             var integrante = equipo.equipo[integrante_id]; 
             $('#curriculo').fadeOut(500, function(){
                 $('#curriculo').empty();
-                $('#curriculo').append('<div class="titulo_direccion titulo_'+integrante.clase+'">'+equipo.equipo[integrante_id].direccion+'</div>');
-                $('#curriculo').append('<div class="imagen_datos"></div>');
-                $('.imagen_datos').append('<img src="images/media/'+integrante.foto+'" style="float: right; max-height: 175px; margin-bottom: 10px;"></img>');
-                $('.imagen_datos').append('<div class="curriculo_datos" style="float: left;"></div>');
-                $('.curriculo_datos').append('<div class="curriculo_datos_nombre">'+integrante.nombre+'</div>');
-                $('.curriculo_datos').append('<div class="curriculo_datos_cargo">'+integrante.cargo+'</div>');
-                $('.curriculo_datos').append('<div class="curriculo_datos_extra"><a mailto="'+integrante.mail+'">'+integrante.mail+'</a></div>');
-                $('#curriculo').append('<div class="point_trick"></div>');
-                var twitter = "";
-                if(integrante.twitter != "")
-                    twitter = integrante.twitter;		
-                else
-                    twitter = 'ideapais';
-                $('.curriculo_datos').append('<div class="curriculo_datos_extra"><a href="http://www.twitter.com/'+twitter+'">@'+twitter+'</div>');
-                $('#curriculo').append('<div class="curriculo_text_curriculum">'+integrante.curriculum+'</div>');
+                $('#curriculo').append('<div class="datos_curriculo_container"></div>');
+                $('.datos_curriculo_container').append('<div class="datos_curriculo_wrapper"></div>');                
+                agregarInformacion($('.datos_curriculo_wrapper'), integrante);
+                agregarBiografia($('.datos_curriculo_wrapper'), integrante);
                 //_gaq.push(['_trackEvent', 'Quienes Somos', 'Vista', integrante.nombre]);
                 $('#curriculo').fadeIn(500);		
             });		

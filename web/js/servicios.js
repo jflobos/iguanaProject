@@ -8,24 +8,104 @@ var Scroller = (function (){
     var scrollToHash = function scrollToHash(hash){
         var hash = (hash != undefined) ? hash:'';
         var destination = (hash != '' && hash != '#header') ? $(hash).offset().top:0;
-        console.log(destination);
-        stopAnimatedScroll();
+        WaypointManager.desactivarWaypoints();
         $('html, body').stop().animate({ 
             scrollTop: destination
-        }, 400, 
+        }, 1000, 
         function() { 
-            window.location.hash = hash; 
+            window.location.hash = hash;
+            WaypointManager.activarWaypoints();
         });
         return false;
     }
-    var stopAnimatedScroll = function stopAnimatedScroll(){
-        if ( $('*:animated').length > 0 ) { $('*:animated').stop(); }
-    }    
     //Metodos publicos
     return{
         scrollToElement: function scrollToElement(hash){            
             scrollToHash(hash);
         }        
+    }
+})();
+
+var WaypointManager = (function(){
+    var nombre_elemento;
+    return{
+        activarWaypoints: function activarWaypoints(){            
+            $(window).scroll(function(){
+                Menu.externalSetMenuSuperior();
+                $(window).unbind('scroll');
+                $(nombre_elemento).waypoint(function(){
+                    Menu.changeBotonActivo($(this).attr('menu'));
+                });   
+            });
+            
+        },
+        desactivarWaypoints: function desactivarWaypoints(){
+             $(nombre_elemento).waypoint('remove');
+        },
+        init:  function init(_nombre_elemento){
+            nombre_elemento = _nombre_elemento;
+            WaypointManager.activarWaypoints();
+        }
+    }
+})();
+
+/*
+ *  Plugin para gestionar el uso del Facebook Graph Plugin:   
+ */
+
+ var FacebookAPI = (function(){
+    //variables privadas
+    var albums = [];
+    var token;        
+    //variables publicas
+    var processImages = function processImages(_images){
+        var images = [];
+        $.each(_images, function(i,image){
+            images.push({                
+                src: image.images[3].source,
+                height: image.images[3].height,
+                width: image.images[3].width                
+            });
+        });
+        return images;
+    }
+    //metodos publicos
+    return{
+        /*
+         *  Retorna todos los albunes de fotos de un usuario:
+         *    - "user": el facebook ID del user 
+         */
+        getAlbums: function getAlbums(user){
+            var data = Connections.getExternalJSON('https://graph.facebook.com/'+user+'/albums?fields=name,cover_photo');
+            albums = albums.concat(data.data);
+            while(data.paging.next != undefined){                
+                data = Connections.getExternalJSON(data.paging.next);
+                albums = albums.concat(data.data);
+            }
+            return albums;
+        },
+        /*
+         *  Retorna todas las fotos de un determinado album:
+         *    - "album": el facebook ID del album
+         *    - "type": El tipo de imagen que se va a extraer por tamanho
+         *      + 1 -> Tamano real de la foto
+         *      + 2 -> 720x720
+         *      + 3 -> 600x600 
+         */
+        getPhotosAlbum: function getPhotosAlbum(album, type){
+            var photos = [];            
+            var data = Connections.getExternalJSON('http://graph.facebook.com/'+album+'?fields=photos');
+            photos = photos.concat(data.photos.data);
+            if(data.photos.paging != undefined && data.photos.paging.next != undefined){
+                data = Connections.getExternalJSON(data.photos.paging.next);
+                photos = photos.concat(data.data);
+                while(data.paging.next != undefined){                    
+                    data = Connections.getExternalJSON(data.paging.next);
+                    photos = photos.concat(data.data);
+                } 
+            }                       
+            return processImages(photos);
+        }
     }
 })();
 
@@ -143,7 +223,8 @@ var ViewMedia = (function(){
             }
         }
     }
-})()
+})();
+
 /*
  * Modulo que permite obtener informacion desde la base dde datos de IdeaPais
  */
@@ -151,7 +232,7 @@ var IdeaPaisAPI = (function(){
     //variables privadas
     return {
         getNoticias: function getNoticias(){            
-            return Connections.getDataAJAX('api/getOpinionPublicaAjax.php');
+            return Connections.getDataAJAX('api/getNoticiasAjax.php');
         },
         getInfoOpinionPublica: function getInfoOpinionPublica(){            
             return Connections.getDataAJAX('api/getOpinionPublicaAjax.php');
@@ -159,29 +240,148 @@ var IdeaPaisAPI = (function(){
     }
 })()
 
+
+/*
+ *  Modulo de coneccionex AJAX cuyo objetivo es manejar todo las llamadas AJAX ajenas a la pagina
+ */
 var Connections = (function(){
+    var AJAXCall = function AJAXCall(_url, method, parameters, async, dataType, crossDomain){
+        var info;
+        $.ajax({
+              url: _url,
+              type: method,
+              data: parameters,              
+              async: async,
+              dataType: dataType,              
+              crossDomain: crossDomain,
+              success: function(data, textStatus, jqXHR) {
+                //Llamada correcta
+                info = data;                
+              },              
+              error: function(jqXHR, textStatus, errorThrown){
+                //Error en la llamada
+                info = textStatus;
+              }
+        });
+        return info;
+    }
     return{
-        getDataAJAX: function getDataAJAX(_url, method, parameters, async){
-            var info;
+        getDataAJAX: function getDataAJAX(_url, method, parameters, async, crossDomain){            
             var async = (typeof async === "undefined") ? false : async;
             var method = (typeof async === "undefined") ? 'post' : method;
             var parameters = (typeof async === "undefined") ? {} : parameters;
-            $.ajax({
-              url: _url,
-              type: method,
-              data: parameters,
-              async: async,
-              success: function(data, textStatus, jqXHR) {
-                //Llamada correcta
-                info = data;            
-              },
-              error: function(jqXHR, textStatus, errorThrown){
-                //Error en la llamada
-                alert(errorThrown);
-                info = 'error';
-              }
-            });
-            return info;
+            var dataType = 'json';            
+            var crossDomain = false;
+            return AJAXCall(_url, method, parameters, async, dataType);
+        },
+        getExternalJSON: function getExternalJSON(_url, method, parameters, async, crossDomain){            
+            var async = (typeof async === "undefined") ? false : async;
+            var method = (typeof async === "undefined") ? 'post' : method;
+            var parameters = (typeof async === "undefined") ? {} : parameters;
+            var dataType = 'json';  
+            var crossDomain = true;
+            return AJAXCall(_url, method, parameters, async, dataType);
+        } 
+    }
+})();
+
+/*
+    Administra el Menu de la pagina central del sitio de IP.
+ */
+
+var Menu = (function(){
+    //Variables privadas    
+    var seccion_actual;    
+    //Metodos privados
+    var initializeScroll = function initializeScroll(){
+        var hash = window.location.hash;        
+        scrollToElement(hash);
+    }
+    //Inicializa los menu
+    var initializeListeners = function initializeListeners(){
+        $('#logo_head').click(function(){
+            $('#nav').attr('class','');
+        });
+        $('.nav_menu_boton_action').hover(function(){
+            if(seccion_actual != $(this).attr('menu')){
+                activarBotonMenu($(this).attr('menu'));
+            }            
+        });
+        $('.nav_menu_boton_action').mouseleave(function(){
+            if(seccion_actual != $(this).attr('menu')){
+                desactivarBotonMenu($(this).attr('menu'));
+            }
+        });
+        $('#nav a, .clients-capabilities a').click(function(){
+            Menu.changeBotonActivo($(this).attr('menu'));
+            scrollToElement(this.hash);
+            Menu.changeBotonActivo($(this).attr('menu'));
+        });
+        WaypointManager.init('.scroll_waypoint');
+    }    
+    //Deja el menu en el estado inicial
+    var setMenuInicial = function setMenuInicial(){
+        $('#nav').removeClass('active');
+        $('#nav').removeClass('nav_active');
+        $('#logo_head').removeClass('logo_active');
+        $('#logo_head').addClass('logo_initial');
+        $('.menu').addClass('menu_initial');	
+        $('.menu').addClass('initial');
+        $('#logo_wrapper').addClass('logo_wrapper_initial');	
+        $('#menu_wrapper').addClass('menu_wrapper_initital');
+        $('html').scroll(function(){
+            setMenuSuperior();
+            $('html').unbind('scroll',false);
+        });
+    }   
+    //Deja el menu en estado activo 'pasa a estar arriba'
+    var setMenuSuperior = function setMenuSuperior(){
+        $('#nav').removeClass('initial');
+        $('#logo_head').removeClass('initial');
+        $('#logo_head').removeClass('logo_initial');		
+        $('.menu').removeClass('menu_initial');
+        $('#logo_wrapper').removeClass('logo_wrapper_initial');	
+        $('#menu_wrapper').removeClass('menu_wrapper_initital');
+        $('#logo_head').addClass('active');
+        $('#nav').addClass('nav_active');
+        $('#nav').addClass('active');        
+        $('#logo_head').addClass('logo_active');        
+    }    
+    var scrollToElement = function scrollToElement(hash){        
+        if(hash == "#header" || hash == '')
+            setMenuInicial();
+        else
+            setMenuSuperior();
+        Scroller.scrollToElement(hash);        
+    }
+    //Activa un boton del menu    
+    var activarBotonMenu = function activarBotonMenu(menuaActivar){
+        $('#'+menuaActivar+'_boton_selected').show();
+        $('#'+menuaActivar+'_boton_normal').hide();
+    }
+    //Activa un boton del menu
+    var desactivarBotonMenu = function desactivarBotonMenu(menuaActivar){
+        $('#'+menuaActivar+'_boton_selected').hide();
+        $('#'+menuaActivar+'_boton_normal').show(); 
+    }    
+    //Metodos publicos
+    return{
+        init: function init(){
+            initializeListeners();
+            initializeScroll();
+        },
+        //Activa y desactiva un boton del menu:
+        changeBotonActivo: function changeBotonActivo(nuevoBoton){
+            if(seccion_actual != nuevoBoton){
+                if(seccion_actual != undefined){
+                    desactivarBotonMenu(seccion_actual);
+                }
+                activarBotonMenu(nuevoBoton);
+                seccion_actual = nuevoBoton;
+            }
+        },
+        externalSetMenuSuperior: function externalSetMenuSuperior(){
+            setMenuSuperior();
         }
     }    
-})();
+})()

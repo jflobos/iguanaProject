@@ -5,17 +5,6 @@ html{
 body{
     overflow-x: visible;
 }
-
-@font-face {
-    font-family: libelsuit;
-    src: url("../fonts/libelsuit.eot"); /* EOT for IExplorer */ 
-}
-
-@font-face {
-    font-family: libelsuit;  
-    src: url("../fonts/libelsuit.ttf");  
-}
-
 @font-face {
     font-family: arnoPro;  
     src: url("../fonts/ArnoPro.eot");  
@@ -41,15 +30,15 @@ body{
     /* This is the slide area */	
     clear: none;
     /* jQuery changes the width later on to the sum of the widths of all the slides. */
-    width: 1240px;	
+    width: 100%;	
     overflow-x: visible;
     position: relative;
     float: left;
 }
 
 .slide_text_element{
-    width: 250px;
-    height: 250px;
+    width: 225px;
+    height: 225px;
     float: left;
     position: relative;
 }
@@ -61,7 +50,7 @@ body{
 }
 
 .slide_text_element{	
-    margin-top: 36px;
+    margin-top: 32px;
     color: white;
     position: relative;
     border-top: solid 5px #000;
@@ -73,8 +62,8 @@ body{
 
 .slide_text_element_titulo{
     position: absolute;
-    font-family: libelsuit, verdana, helvetica, sans-serif;	
-    font-size: 28px;	
+    font-family: BebasNeue, verdana, helvetica, sans-serif;	
+    font-size: 25px;	
     padding-left: 10px;
     padding-right: 10px;
     line-height: 28px;
@@ -84,8 +73,8 @@ body{
 
 .slide_text_element_bajada{
     position: absolute;
-    font-family: arnoPro, verdana, helvetica, sans-serif;
-    font-size: 14px;
+    font-family: helvetica, sans-serif;
+    font-size: 11.5px;
     line-height: 14px;
     padding-left: 10px;
     padding-right: 10px;
@@ -101,7 +90,7 @@ body{
 
 .slide_img_wrapper{	
     border: solid 5px #000;
-    height: 300px;
+    height: 270;
 }
 
 .slide_img_container{
@@ -122,10 +111,11 @@ body{
 
 .slide_img_box{
     position: relative;	
+    height: 270px;
 }
 
 .slide_shift img{
-    margin-top: 151px; 	
+    margin-top: 132px; 	
 }
 
 .right{
@@ -150,6 +140,11 @@ body{
 }
 
 .image_center{
+    /*
+    Valores originales
     height: 300px;
     width: 1028px;
+    */
+    height: 270px;
+    width: 925px;
 }
