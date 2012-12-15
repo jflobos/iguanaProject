@@ -14,8 +14,9 @@ var Formacion = (function(){
     //Metodos privados
     var initDOM = function initDOM(){
         contenedor.append('<div id="curso"></div>');
-        $('#curso').append('<img class="fondo_curso" src="images/formacion/sillas.jpg"/>');
+        $('#curso').append('<img class="fondo_curso" src="images/formacion/sillas.png"/>');
         $('#curso').append('<img class="titulo_curso" src="images/formacion/cursos.png"/>');
+        /*
         $('#curso').append('<img class="icono_silla silla_1" src="images/formacion/silla_1.png"/>');
         $('#curso').append('<img class="icono_silla silla_2" src="images/formacion/silla_2.png"/>');
         $('#curso').append('<img class="icono_silla silla_3" src="images/formacion/silla_3.png"/>');
@@ -25,6 +26,7 @@ var Formacion = (function(){
         $('#curso').append('<img class="icono_silla silla_5_3" src="images/formacion/silla_5_3.png"/>');
         $('#curso').append('<img class="icono_silla silla_5_4" src="images/formacion/silla_5_1.png"/>');
         $('#curso').append('<img class="icono_silla silla_6" src="images/formacion/silla_6.png"/>');
+        */
         $('#curso').append('<img class="indicador_curso indicador_curso_1" src="images/formacion/indicador.png"/>');
         $('#curso').append('<img class="indicador_curso indicador_curso_2" src="images/formacion/indicador.png"/>');
         $('#curso').append('<img class="indicador_curso indicador_curso_3" src="images/formacion/indicador.png"/>');

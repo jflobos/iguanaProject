@@ -291,56 +291,187 @@ Modulo noticias
 */
 #noticias_container{    
     z-index: 1000;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
 }
 .noticia_container_titulo{
     position: absolute;
     top: 20px;
     left: 512px;          
 }
-overview_noticia{
-    position: absolute;
-    background-color: rgb(249,249,249);    
-    border: black solid 1px;
-    top: 120px;
-    left: 25px;
-    width: 780px;
-    height: 800px;
-    padding: 10px;
+.overview_noticia{    
+    width: 760px;    
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
     font-size: 12px;
+    text-align: justify;
 }
-.overview_noticia .viewport{
+.noticia_activa{
     width: 800px;
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    height: 400px;
+    background-color: #F9F9F9;
+    border: black solid 1px;
+    padding: 2px;
+}
+
+.noticia_content{
+    width: 800px;
+    height: 400px;
+    margin: 0px;    
+}
+
+.noticia_content .scrollbar{
+    position: relative;
+    float: right;
+    width: 15px;
+    margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.noticia_content .viewport{
+    width: 780px;
     height: 400px;
     overflow: hidden;
     position: relative;
     float: left;
 }
-.overview_noticia .thumb{
+.noticia_content .thumb{
     background-color: black;
-    width: 20px;
+    width: 15px;
 }
 
-.overview_noticia .thumb .end{
+.noticia_content .thumb .end{
     background-color: black;
-    width: 20px;
+    width: 15px;
 }
+
+.noticia_content .track{
+    background-color: rgb(249,249,249);
+    height: 100%;
+    width: 13px;
+    position: relative;
+    padding: 0 1px;
+}
+
 .historial_noticias{
     position: absolute;
     width: 380px;    
-    min-height: 390px;
-    background-color: rgb(249,0,0);
+    min-height: 390px;    
     top: 120px;
-    right: 25px;
-    padding: 10px;
+    right: 25px;    
 }
 .noticia_epigrafe{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     margin-bottom: 10px;
+    text-transform: lowercase;
+    font-family: sans-serif;
+    font-variant: small-caps;
+    margin-top: 20px;
 }
+
+.noticia_element{
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+.noticia_titulo{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;    
+}
+
+
 .noticia_bajada{    
-    margin-bottom: 10px;
+    font-style: italic;
+    font-size: 14px;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
-.noticia_cuerpo{    
+.noticia_cuerpo{
+    margin-top: 20px;
+    margin-bottom: 40px;    
+}
+.titulo_historial_widget{
     margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 188px;
+    font-family: BebasNeue;
+    border-bottom: red 2px solid;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+#historial_widget{
+    height: 300px;
+    width: 300px;
+    background-color: rgb(249,249,249);
+    font-family: sans-serif;    
+    padding: 10px;
+}
+.overview_historial_noticias{    
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    background-color: white;
+    padding: 5px;
+}
+.noticia_preview{
+    font-size: 12px;
+    cursor: pointer;    
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: solid black 1px;
+}
+
+.noticia_preview_first{
+    border-top: solid black 1px;
+}
+
+#container_overview_historial_noticias .scrollbar{
+    position: relative;
+    float: right;
+    width: 15px;
+    margin-right: 5px;
+}
+
+#container_overview_historial_noticias .viewport{
+    width: 250px;
+    height: 252px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+#container_overview_historial_noticias .thumb{
+    background-color: black;
+    width: 15px;
+}
+
+#container_overview_historial_noticias .thumb .end{
+    background-color: black;
+    width: 15px;
+}
+
+#container_overview_historial_noticias .track{
+    background-color: white;
+    height: 100%;
+    width: 15px;
+    position: relative;    
+}
+#container_overview_historial_noticias{
+    width: 280px;
+    height: 252px;
+    background-color: white;
 }
