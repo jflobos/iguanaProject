@@ -8,6 +8,7 @@
                   'autor_cita'  => 'Nicolás León',
                   'foto_cita'   => '',
                   'media'       => array(
+                                    'active' => 0,
                                     'video' => array(
                                         'ytb_id' => ''
                                     ),
@@ -24,6 +25,7 @@
                   'autor_cita'  => '',
                   'foto_cita'   => '',
                   'media'       => array(
+                                    'active' => 0,
                                     'video' => array(
                                         'ytb_id' => ''
                                     ),
@@ -40,6 +42,7 @@
                   'autor_cita'  => 'IdeaPaís',
                   'foto_cita'   => '',
                   'media'       => array(
+                                    'active' => 0,
                                     'video' => array(
                                         'ytb_id' => ''
                                     ),
@@ -56,6 +59,7 @@
                   'autor_cita'  => 'Claudio Alvarado',
                   'foto_cita'   => '',
                  'media'       => array(
+                                    'active' => 1,
                                     'video' => array(
                                         'ytb_id' => 'FYfDa7iniPM'
                                     ),
@@ -72,6 +76,7 @@
                   'autor_cita'  => 'Diego Schalper',
                   'foto_cita'   => '',
                   'media'       => array(
+                                    'active' => 2,
                                     'video' => array(
                                         'ytb_id' => '7ERXdHt7MmY'
                                     ),
@@ -88,6 +93,7 @@
                   'autor_cita'  => '',
                   'foto_cita'   => '',
                   'media'       => array(
+                                    'active' => 2,
                                     'video' => array(
                                         'ytb_id' => 'RBpbF0Gz97'
                                     ),

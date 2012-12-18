@@ -10,7 +10,7 @@ var GalleryWidget = (function(){
     var contenedor;    
     //Inicia los elementos HTML de la pagina
     var initDOM = function initDOM(width, height){
-        contenedor.append('<div id="galeria_imagenes" style="width: '+width+'px; height: '+height+'px; margin-left: auto; margin-right: auto; background: #000;"></div>');        
+        contenedor.append('<div id="galeria_imagenes" style="width: '+(width)+'px; height: '+(height)+'px; margin-left: auto; margin-right: auto; background: #000;"></div>');        
         $.each(images, insertImage);
         Galleria.loadTheme('css/gallery/galleria/galleria.classic.min.js');
         Galleria.configure({

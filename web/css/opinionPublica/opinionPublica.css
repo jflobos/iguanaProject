@@ -344,18 +344,18 @@ Modulo noticias
 }
 .noticia_content .thumb{
     background-color: black;
-    width: 15px;
+    width: 12px;
+    border-radius: 12px;
 }
 
 .noticia_content .thumb .end{
-    background-color: black;
-    width: 15px;
+    width: 0px;
+    background-color: black;    
 }
 
 .noticia_content .track{
-    background-color: rgb(249,249,249);
-    height: 100%;
-    width: 13px;
+    background-color: white;    
+    width: 12px;
     position: relative;
     padding: 0 1px;
 }
@@ -406,11 +406,12 @@ Modulo noticias
     margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 188px;
+    width: 210px;
     font-family: BebasNeue;
     border-bottom: red 2px solid;
     font-size: 28px;
     text-transform: uppercase;
+    text-align: center;
 }
 #historial_widget{
     height: 300px;
@@ -443,35 +444,61 @@ Modulo noticias
 #container_overview_historial_noticias .scrollbar{
     position: relative;
     float: right;
-    width: 15px;
+    width: 12px;
     margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 #container_overview_historial_noticias .viewport{
-    width: 250px;
-    height: 252px;
+    width: 255px;
+    height: 250px;
     overflow: hidden;
     position: relative;
     float: left;
 }
 #container_overview_historial_noticias .thumb{
     background-color: black;
-    width: 15px;
+    width: 12px;
+    border-radius: 12px;
 }
 
 #container_overview_historial_noticias .thumb .end{
     background-color: black;
-    width: 15px;
+    width: 0px;
+    border-radius: 12px;
 }
 
 #container_overview_historial_noticias .track{
-    background-color: white;
-    height: 100%;
-    width: 15px;
+    background-color: white;    
+    width: 12px;
     position: relative;    
 }
 #container_overview_historial_noticias{
     width: 280px;
     height: 252px;
     background-color: white;
+}
+
+.noticia_module_volver{
+    margin-top: 30px;
+    margin-left: 185px;
+    width: 132px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.noticia_module_volver img{
+    max-height: 50px;
+    float: left;
+}
+
+.noticia_module_volver .texto_volver{
+    text-transform: uppercase;
+    color: black;
+    font-family: BebasNeue;
+    font-size: 28px;
+    margin-left: 10px;
+    float: left;
+    margin-top: 7px;
 }

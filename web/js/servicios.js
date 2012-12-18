@@ -171,8 +171,7 @@ var ViewMedia = (function(){
      * @options <object> Opciones para el iframe del video
      * @return Inicia el elemento para ver un video en youtube
      */
-    var initYoutubeViewer = function initYoutubeViewer(video, options){
-        initModalLayer();
+    var initYoutubeViewer = function initYoutubeViewer(video, options){        
         initModalComponent(options);
         var width = 0.8 * $('#modal_element_container').width();
         var height = 0.8 * width *(540/640);  
@@ -194,14 +193,16 @@ var ViewMedia = (function(){
      * @options <object> Opciones para mostrar la vista
      * @return Inicia el elemento para ver un video en youtube
      */
-    var initInfografiaViewer = function initInfografiaViewer(infografia, options){
-        initModalLayer();
+    var initInfografiaViewer = function initInfografiaViewer(infografia, options){        
         $('body').append('<div id="modal_component"></div>');       
         $('#modal_component').append('<div id="modal_element_container"></div>');        
         $('#modal_element_container').append('<div id="modal_element_container_contenido"></div>');
         var width = $('#modal_layer').width()*0.8;
         var height = $('#modal_layer').height()*0.95;
-        $('#modal_element_container_contenido').append('<iframe class="iframe_infografia_viewer" type="text/html" width="'+width+'" height="'+height+'" src="infografiaViewer/getIframeInfografia.php?infografia='+infografia.archivo+'&infografia_nombre='+infografia.titulo+'" frameborder="0" ></iframe>');
+        $('#modal_element_container_contenido').append('<iframe class="iframe_infografia_viewer" type="text/html" width="'+width+'" height="'+height+'" src="getIframeInfografia.php?infografia='+infografia.archivo+'&infografia_nombre='+infografia.titulo+'" frameborder="0" ></iframe>');        
+    }       
+    var initListener = function initListener(){
+        initModalLayer();
         $('#modal_layer').click(function(){
            $('#modal_component').fadeOut(1000);
            $('#modal_layer').fadeOut(1000, function(){
@@ -209,7 +210,7 @@ var ViewMedia = (function(){
                $('#modal_layer').remove();
            });
         });
-    }       
+    }
     return{
         //Metodos publicos
         initViewer: function initViewer(type, info, options){
@@ -221,6 +222,7 @@ var ViewMedia = (function(){
                     initInfografiaViewer(info,options);
                     break;
             }
+            initListener();
         }
     }
 })();

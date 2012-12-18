@@ -154,14 +154,17 @@ var Formacion = (function(){
     var modalExpositores = function modalExpositores(){
         desactivarEventosPrincipales();
         var leftMarg = 0;
+        //DOM
         $('#curso').append('<div id="expositores_container"></div>');
-        $('#expositores_container').append('<div id="expositores_wrapper" style="width: '+expositores.length*170+'px; height: 250px;"></div>');
+        $('#expositores_container').append('<div id="expositores_overview"></div>');
+        $('#expositores_overview').append('<div id="expositores_wrapper" style="width: '+expositores.length*170+'px; height: 250px;"></div>');
         $('#expositores_container').append('<div id="left_bottom_container"><img src="images/formacion/flecha.png" /></div>');
         $('#expositores_container').append('<div id="right_bottom_container"><img src="images/formacion/flecha.png" /></div>');
-        $.each( expositores ,function(i, val){        
-            $('#expositores_wrapper').append('<div class="expositor_frame"><img src="images/formacion/expositores/'+val.foto+'" class="expositor_foto"/><div class="expositor_nombre">'+val.nombre+'</div><div class="expositor_estudios">'+val.estudios+'</div></div>');         	
+        $.each( expositores ,function(i, val){
+            $('#expositores_wrapper').append('<div class="expositor_frame"><img src="images/formacion/expositores/'+val.foto+'" class="expositor_foto"/><div class="expositor_nombre">'+val.nombre+'</div><div class="expositor_estudios">'+val.estudios+'</div></div>');
         });
         $('#expositores_container').append('<div class="boton_volver_expositores"><img class="img_volver" src="images/formacion/flecha_negra.png"/><div class="secciones_menu_boton_volver">volver</div><div class="point_trick"></div></div>');
+        //Eventos
         $('.boton_volver_expositores').hover(function(){
             $('.secciones_menu_boton_volver').css('text-decoration','underline');
         });
@@ -169,22 +172,26 @@ var Formacion = (function(){
             $('.secciones_menu_boton_volver').css('text-decoration','');
         });
         $('#left_bottom_container').click(function(){
-            var ancho = $('.fondo_curso').width() + 10;
-            if( leftMarg + $('.fondo_curso').width() < 0) 
-                leftMarg += $('.fondo_curso').width();
+            var ancho = $('#expositores_overview').width() + 10;
+            if( leftMarg + $('#expositores_overview').width() < 0) 
+                leftMarg += $('#expositores_overview').width();
             else
                 leftMarg = 0;        
             $('#expositores_wrapper').stop().animate({marginLeft:leftMarg+'px'},450);
         });
         $('#right_bottom_container').click(function(){
-            var ancho = $('.fondo_curso').width() + 10;
-            if(($('#expositores_wrapper').width() + leftMarg - 2*$('.fondo_curso').width()) < 0) 
-                 leftMarg -= $('#expositores_wrapper').width() + leftMarg - $('.fondo_curso').width();
+            var ancho = $('#expositores_overview').width() + 10;
+            if(($('#expositores_wrapper').width() + leftMarg - 2*$('#expositores_overview').width()) < 0) 
+                 leftMarg -= $('#expositores_wrapper').width() + leftMarg - $('#expositores_overview').width();
             else
-                leftMarg -= $('.fondo_curso').width();        
+                leftMarg -= $('#expositores_overview').width();        
             $('#expositores_wrapper').stop().animate({marginLeft:leftMarg+'px'},450);
         });
-        $('.boton_volver_expositores').click(function(){
+        $('.boton_volver_expositores .secciones_menu_boton_volver').click(function(){
+            $('#expositores_container').remove();
+            activarEventosPrincipales();
+        });
+        $('.boton_volver_expositores .img_volver').click(function(){
             $('#expositores_container').remove();
             activarEventosPrincipales();
         });
@@ -208,11 +215,11 @@ var Formacion = (function(){
             $('.sesiones_curso').append('<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"><div class="overview overview_sesiones"></div>');
             $('.overview_sesiones').append('<div class="titulo_descripcion_curso">calendario del curso: '+elCurso.titulo.toLowerCase()+'</div>');
             $.each( elCurso.sesiones,function(i, val){
-                    $('.overview_sesiones').append('<div class="titulo_sesion">'+val.titulo+'</div>');
-                    $('.overview_sesiones').append('<div class="expositores_sesion">'+val.expositor+'</div>');
-                    $('.overview_sesiones').append('<div class="fecha_sesion">'+val.fecha_sesion+'</div>');	
+                $('.overview_sesiones').append('<div class="titulo_sesion">'+val.titulo+'</div>');
+                $('.overview_sesiones').append('<div class="expositores_sesion">'+val.expositor+'</div>');
+                $('.overview_sesiones').append('<div class="fecha_sesion">'+val.fecha_sesion+'</div>');	
             });
-
+            
             /* Formulario de postulacion */
             $('#curso_info').append('<div class="postula_curso content" style="display: none;"></div>');
             $('.postula_curso').append('<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"><div class="overview overview_postula"></div>');

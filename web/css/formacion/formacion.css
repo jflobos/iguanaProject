@@ -145,6 +145,7 @@
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     line-height: 15px;
     z-index: 3;
+    cursor: pointer;
 }
 .indicador_texto_curso_1{
 	left: 249px;
@@ -160,6 +161,7 @@
 	max-height: 50px;
 	left: 50px;
 	z-index: 3;
+        cursor: pointer;
 }
 .flecha_expositores{	
 	top: 29px;
@@ -178,6 +180,7 @@
 	font-family: BebasNeue,"Trebuchet MS", Helvetica, sans-serif;
 	line-height: 24px;
 	z-index: 3;
+        cursor: pointer;
 }
 .texto_expositores_action{
 	top: 54px
@@ -229,8 +232,7 @@
 	color: black;
 	text-align: justify;	
 }
-.sesiones_curso{
-    
+.sesiones_curso{    
 }
 .titulo_sesion{
     margin-top: 15px;
@@ -245,13 +247,13 @@
     float: right;	
 }
 #boton_descripcion_curso{
-	
+    cursor: pointer;
 }
 #boton_sesiones_curso{
-	
+    cursor: pointer;
 }
 #boton_sesiones_curso{
-	
+    cursor: pointer;
 }
 .boton_menu_cursos img{
     max-width: 200px;
@@ -261,6 +263,7 @@
     max-height: 40px;
     float: right;
     margin-top: 6px;
+    cursor: pointer;
 }
 .secciones_menu_boton_volver{
     max-height: 50px;
@@ -272,13 +275,8 @@
     text-align: left;
     float: right;
     margin-right: 10px;
+    cursor: pointer;
 }
-.point_trick{
-	height: 1px;
-	width: 1px;
-	clear: both;
-}
-
 /* Para tinyscrollbar */
 
 .content { width: 450px; height: 261px; clear: both; margin: 1px 0 10px; }
@@ -302,10 +300,10 @@
     background-color: white;
     border: solid 5px #646464;
     width: 1268px;
-    height: 315px;
+    height: 350px;
     padding-top: 10px;
     padding-bottom: 10px;
-    top: 165px;
+    top: 100px;
     left: 0px;
     font-family: 'Playfair Display', "Trebuchet MS", Helvetica, sans-serif;
     color: #444;
@@ -313,6 +311,14 @@
     overflow-x: hidden;
     color: white;
 }
+
+#expositores_overview{
+    overflow-x: hidden;
+    width: 1179px;
+    height: 300px;
+    margin-left: 30px;
+}
+
 .expositores_wrapper{    
     position: absolute; 
 }

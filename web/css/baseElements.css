@@ -26,3 +26,17 @@
 #modal_element_action_cerrar{
     position: absolute; right: 0px; top: 0px; cursor: pointer;
 }
+
+.reflejo_horizontal{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+.point_trick{
+	height: 1px;
+	width: 1px;
+	clear: both;
+}
