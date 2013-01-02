@@ -7,7 +7,7 @@ var Scroller = (function (){
     //Realiza un Scroll en base a un hash dado
     var scrollToHash = function scrollToHash(hash){
         var hash = (hash != undefined) ? hash:'';
-        var destination = (hash != '' && hash != '#header') ? $(hash).offset().top:0;
+        var destination = (hash != '' && hash != '#header') ? ($(hash).offset().top+10):0;
         WaypointManager.desactivarWaypoints();
         $('html, body').stop().animate({ 
             scrollTop: destination
@@ -27,20 +27,15 @@ var Scroller = (function (){
 })();
 
 var WaypointManager = (function(){
-    var nombre_elemento;
+    var nombre_elemento;    
     return{
-        activarWaypoints: function activarWaypoints(){            
-            $(window).scroll(function(){
-                Menu.externalSetMenuSuperior();
-                $(window).unbind('scroll');
-                $(nombre_elemento).waypoint(function(){
-                    Menu.changeBotonActivo($(this).attr('menu'));
-                });   
+        activarWaypoints: function activarWaypoints(){                                   
+            $(nombre_elemento).waypoint(function(){                        
+                 Menu.changeBotonActivo($(this).attr('menu'));
             });
-            
         },
         desactivarWaypoints: function desactivarWaypoints(){
-             $(nombre_elemento).waypoint('remove');
+             $(nombre_elemento).waypoint('destroy');             
         },
         init:  function init(_nombre_elemento){
             nombre_elemento = _nombre_elemento;
@@ -294,13 +289,15 @@ var Connections = (function(){
 var Menu = (function(){
     //Variables privadas    
     var seccion_actual;    
+    var scrollListener = 0;
     //Metodos privados
     var initializeScroll = function initializeScroll(){
-        var hash = window.location.hash;        
+        var hash = window.location.hash;
         scrollToElement(hash);
     }
     //Inicializa los menu
-    var initializeListeners = function initializeListeners(){
+    var initializeListeners = function initializeListeners(){        
+        WaypointManager.init('.scroll_waypoint');
         $('#logo_head').click(function(){
             $('#nav').attr('class','');
         });
@@ -318,11 +315,11 @@ var Menu = (function(){
             Menu.changeBotonActivo($(this).attr('menu'));
             scrollToElement(this.hash);
             Menu.changeBotonActivo($(this).attr('menu'));
-        });
-        WaypointManager.init('.scroll_waypoint');
+        });        
     }    
     //Deja el menu en el estado inicial
     var setMenuInicial = function setMenuInicial(){
+        estado_menu = 'inicial';
         $('#nav').removeClass('active');
         $('#nav').removeClass('nav_active');
         $('#logo_head').removeClass('logo_active');
@@ -331,11 +328,17 @@ var Menu = (function(){
         $('.menu').addClass('initial');
         $('#logo_wrapper').addClass('logo_wrapper_initial');	
         $('#menu_wrapper').addClass('menu_wrapper_initital');
-        $('html').scroll(function(){
-            setMenuSuperior();
-            $('html').unbind('scroll',false);
-        });
-    }   
+        scrollListener();
+    } 
+    
+    var scrollListener = function scrollListener(){
+        if(scrollListener == 0){
+            scrollListener = 1;
+            $(window).scroll(function(){            
+                    setMenuSuperior();            
+            });
+        }
+    }
     //Deja el menu en estado activo 'pasa a estar arriba'
     var setMenuSuperior = function setMenuSuperior(){
         $('#nav').removeClass('initial');

@@ -224,7 +224,17 @@ var opinionPublica = ( function(){
     }
     //Iniciador el video de inicio
     var initProduccionesVideoShow = function initProduccionesVideoShow(container){
-        var maxj = 0;
+        var maxj = 0;            
+        container.append('<div id="producciones_listas_videos_control"></div>');
+        container.append('<div id="producciones_lista_preview"></div>');
+        $.each(videos.producciones_videos, function(i, videosAMostrar){
+          $('#producciones_listas_videos_control').append('<div index="'+i+'" class="video_list_controller">'+videos.producciones_videos[i][0].titulo_lista.toUpperCase()+'</div>');
+        });
+        $('.video_list_controller').click(function(){
+          $('#producciones_lista_preview').empty();
+          fillPreviewVideos($('#producciones_lista_preview'), videos.producciones_videos[$(this).attr('index')], $(this).attr('index'));
+        });
+        /*
         $.each(videos.producciones_videos, function(i, videosAMostrar){
            container.append('<div class="video_producciones_list video_producciones_list_'+i+' index='+i+'"></div>');
            $('.video_producciones_list_'+i).append('<div class="titulo_lista_video_producciones"><img class="titulo_lista_video_producciones_ticket" src="images/opinionPublica/ticketCine.png"/><div class="titulo_lista_video_producciones_titulo_lista">'+videosAMostrar[0].titulo_lista.toUpperCase()+'</div></div>');           
@@ -240,11 +250,30 @@ var opinionPublica = ( function(){
         });
         var altura = 300 + 380*(maxj+1);        
         opinionPublica.animacionExtensionContainer(altura);
-        $('.video_produccion_thumbnail').click(function(){            
-            var video = videos.producciones_videos[$(this).attr('i')][$(this).attr('j')];            
-            var options = {area: 'videos ip', subarea: video.titulo_lista};
-            ViewMedia.initViewer('youtube', video.video, options);
-        });
+        */
+        
+    }
+    
+    var fillPreviewVideos = function fillPreviewVideos(container, videos, i){
+      container.append('<div id="container_producciones_videos_list" class="content"></div>');
+      $('#container_producciones_videos_list').append('<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"><div class="overview overview_producciones_videos_list"></div></div>');
+      $.each(videos, function(j, video){            
+           $('.overview_producciones_videos_list').append('<div class="video_container video_container_'+j+'"></div>');
+           $('.video_container_'+j).append('<div class="thumbnail_wrapper"><img class="video_produccion_thumbnail" i='+i+' j='+j+' src="'+video.video.thumbnail.hqDefault+'"/></div><div class="video_produccion_info"><div class="video_produccion_info_titulo">'+video.video.title.toUpperCase()+'</div><div class="video_produccion_info_decripcion">'+video.video.description+'</div></div>');     
+      });
+      $('#container_producciones_videos_list').tinyscrollbar();
+      $('.video_produccion_thumbnail').click(function(){            
+          var video = videos.producciones_videos[$(this).attr('i')][$(this).attr('j')];            
+          var options = {area: 'videos ip', subarea: video.titulo_lista};
+          ViewMedia.initViewer('youtube', video.video, options);
+      });
+      $('.video_produccion_thumbnail').hover(function(){
+        //TODO animacion para destacar 
+      });
+      $('.video_produccion_thumbnail').mouseleave(function(){
+        //TODO cuando se acabe la animacion
+      });
+      
     }
     
     //initModuleAction

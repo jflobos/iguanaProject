@@ -161,6 +161,19 @@
     float: left;    
     margin-left: 20px;    
 }
+#producciones_listas_videos_control{
+  width: 200px;
+  border: 1px solid black;
+  float: left;
+}  
+.video_list_controller{
+  cursor: pointer;
+}
+#producciones_lista_preview{
+  width: 930px;  
+  float: left;
+  margin-left: 20px;
+}
 
 .titulo_lista_video_producciones{
     position: relative;
@@ -182,7 +195,7 @@
     padding: 5px;
 }
 .video_container{
-    width: 360px;
+    width: 200px;
     border: 3px #EEE solid;
     border-radius: 5px;
     margin-top: 20px;
@@ -190,26 +203,61 @@
     margin-left: 20px;
     -moz-box-shadow: 10px 10px 20px 1px #EEE;
     -webkit-box-shadow: 10px 10px 20px 1px #EEE;
-    box-shadow: 10px 10px 20px 1px #EEE;  
+    box-shadow: 10px 10px 20px 1px #EEE;
+    float: left;
 }
-
+#container_producciones_videos_list .scrollbar{
+    position: relative;
+    float: right;
+    width: 12px;
+    margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+#container_producciones_videos_list{
+  width: 950px;
+}
+#container_producciones_videos_list .viewport{
+  width: 930px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+#container_producciones_videos_list .thumb{
+    background-color: black;
+    width: 12px;
+    border-radius: 12px;
+}
+#container_producciones_videos_list .thumb .end{
+    background-color: black;
+    width: 0px;
+    border-radius: 12px;
+}
+#container_producciones_videos_list .track{
+  background-color: #DDD;
+  width: 12px;
+  position: relative;
+  border-radius: 15px; 
+}
 .video_container .thumbnail_wrapper{
     background-color: white;    
 }
 .video_produccion_thumbnail{
-    max-width: 300px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 30px;
-    margin-right: 30px;
+  max-width: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 25px;
 }
 .video_produccion_info{
     background-color: #DCDFE2;
-    height: 100px;
+    padding-bottom: 10px;
+    height: 110px;
 }
 .video_produccion_info_titulo{
-    font-family: BebasNeue;
-    font-size: 28px;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
     margin-left: 10px;
     margin-top: 10px;
 }
