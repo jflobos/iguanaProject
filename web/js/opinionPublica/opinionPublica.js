@@ -34,48 +34,6 @@ var opinionPublica = ( function(){
         $('#opinion_publica').append('<div id="menu_central_opinion_publica"></div>');        
         showSubMenu();
     }
-    //Inicia los Listeners del modulo central
-    var initListeners = function initListeners(){        
-        $('.menu_central_item_action').click(function(){            
-            subMenuActivo = $(this).attr('action');
-            switch($(this).attr('action')){                
-                case 'prensa':
-                    initMenuPrensa();
-                    break;
-                case 'producciones':
-                    initMenuProducciones();
-                    break;
-            }          
-        });
-    }
-    //Inicia el modulo de noticias
-    var initModuleNoticias = function initModuleNoticias(){        
-        hidePantallaInicial();
-        ModuleNoticias.init(contenedor);
-    }
-    
-    var hidePantallaInicial = function hidePantallaInicial(){
-        disableListeners();
-        $('#opinion_publica_elements_container').fadeOut(animateTime);
-        $('#menu_central_opinion_publica').fadeOut(animateTime);
-    }
-    
-    var showPantallaInicial = function showPantallaInicial(){
-        $('#opinion_publica_elements_container').fadeIn(animateTime);
-        $('#menu_central_opinion_publica').fadeIn(animateTime);
-        initListeners();
-    }
-    
-    //Inicia el submenu de prensa
-    var initMenuPrensa = function initMenuPrensa(){
-        disableListeners();
-        hideShowMenuCentralBoton('prensa');        
-    }
-    //Inicia el submenu de producciones
-    var initMenuProducciones = function initMenuProducciones(){
-        disableListeners();
-        hideShowMenuCentralBoton('producciones');   
-    }
     //Muestra el submenu dependiendo del tipo
     var showSubMenu = function showSubMenu(){
         $('#opinion_publica').append('<div class="sub_menu_central"></div>');
@@ -98,29 +56,6 @@ var opinionPublica = ( function(){
             var action = $(this).attr('action');
             initModuleAction(action);
         });      
-    }
-    //Muestra el menu central
-    var showMenuCentral = function showMenuCentral(){
-        $('#menu_central_opinion_publica').animate({'top' : '150px'},animateTime);
-        $('.menu_central_item_action').show(animateTime);
-        initListeners();
-    }
-    //Oculta y muestra el nuevo menu central
-    var hideShowMenuCentralBoton = function hideShowMenuCentralBoton(tipo){        
-        $('#menu_central_opinion_publica').show(animateTime, function(){
-            $('.menu_central_item_action').each(function(){                
-                if($(this).attr('action') == tipo)
-                   $(this).show(animateTime);                
-                else
-                   $(this).hide(animateTime);                
-            });
-            $('#menu_central_opinion_publica').animate({'top' : '30px'},animateTime);
-            showSubMenu(tipo);
-        });
-    }
-    //Desactiva los escuchadores del menu central
-    var disableListeners = function disableListeners(){
-        $('.menu_central_item_action').unbind();
     }
     //Esconde los elementos centrales
     var hideCentralElements = function hideCentralElements(){
@@ -184,10 +119,6 @@ var opinionPublica = ( function(){
         });
     }
     
-    var arrayMax = function arrayMax(array){        
-        return Math.max.apply( Math, array );
-    }
-    
     //Producciones Videos
     var initProduccionesVideos = function initProduccionesVideos(){
         videos.producciones_videos = [];
@@ -213,38 +144,23 @@ var opinionPublica = ( function(){
           $('#producciones_lista_preview').empty();
           fillPreviewVideos($('#producciones_lista_preview'), videos.producciones_videos[$(this).attr('index')], $(this).attr('index'));
         });
-        /*
-        $.each(videos.producciones_videos, function(i, videosAMostrar){
-           container.append('<div class="video_producciones_list video_producciones_list_'+i+' index='+i+'"></div>');
-           $('.video_producciones_list_'+i).append('<div class="titulo_lista_video_producciones"><img class="titulo_lista_video_producciones_ticket" src="images/opinionPublica/ticketCine.png"/><div class="titulo_lista_video_producciones_titulo_lista">'+videosAMostrar[0].titulo_lista.toUpperCase()+'</div></div>');           
-           $.each(videosAMostrar, function(j, video){               
-               if(j <= 9){
-                $('.video_producciones_list_'+i).append('<div class="video_container video_container_'+i+'_'+j+'"></div>');
-                $('.video_container_'+i+'_'+j).append('<div class="thumbnail_wrapper"><img class="video_produccion_thumbnail" i='+i+' j='+j+' src="'+video.video.thumbnail.hqDefault+'"/></div><div class="video_produccion_info"><div class="video_produccion_info_titulo">'+video.video.title.toUpperCase()+'</div><div class="video_produccion_info_decripcion">'+video.video.description+'</div></div>');
-                 if(j > maxj){
-                     maxj = j;
-                 }
-               }
-           });
-        });
-        var altura = 300 + 380*(maxj+1);        
-        opinionPublica.animacionExtensionContainer(altura);
-        */
-        
     }
     
     var fillPreviewVideos = function fillPreviewVideos(container, videos, i){
       container.append('<div id="container_producciones_videos_list" class="content"></div>');
       $('#container_producciones_videos_list').append('<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"><div class="overview overview_producciones_videos_list"></div></div>');
+      altura = Math.ceil(videos.length/4)*300;
+      $('.overview_producciones_videos_list').css('height', altura);      
       $.each(videos, function(j, video){            
            $('.overview_producciones_videos_list').append('<div class="video_container video_container_'+j+'"></div>');
            $('.video_container_'+j).append('<div class="thumbnail_wrapper"><img class="video_produccion_thumbnail" i='+i+' j='+j+' src="'+video.video.thumbnail.hqDefault+'"/></div><div class="video_produccion_info"><div class="video_produccion_info_titulo">'+video.video.title.toUpperCase()+'</div><div class="video_produccion_info_decripcion">'+video.video.description+'</div></div>');     
       });
-      $('#container_producciones_videos_list').tinyscrollbar();
-      $('.video_produccion_thumbnail').click(function(){            
-          var video = videos.producciones_videos[$(this).attr('i')][$(this).attr('j')];            
-          var options = {area: 'videos ip', subarea: video.titulo_lista};
-          ViewMedia.initViewer('youtube', video.video, options);
+      $('#container_producciones_videos_list').tinyscrollbar();      
+      $('.video_produccion_thumbnail').click(function(){
+        console.log(videos);
+        var video = videos[$(this).attr('j')];     
+        var options = {area: 'videos ip', subarea: video.titulo_lista};
+        ViewMedia.initViewer('youtube', video.video, options);
       });
       $('.video_produccion_thumbnail').hover(function(){
         //TODO animacion para destacar 
