@@ -109,9 +109,10 @@ var Formacion = (function(){
     
     var modalPlanFormacion = function modalPlanFormacion(){        
         desactivarEventosPrincipales();
-        $('#curso').append('<div id="videos_plan_de_formacion_container"></div>');
-        $('#videos_plan_de_formacion_container').append('<div class="video_player_wrapper"></div><div class="video_select_container content"><div class="scrollbar cinta_video"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport videos_formacion"><div class="overview overview_videos_formacion"></div></div></div><div class="point_trick"></div>');    
+        $('#curso').append('<div id="videos_plan_de_formacion_container"></div>');        
         $('#curso').append('<div id="plan_de_formacion_container"></div>');
+        agregarTextosPlandeFormacion($('#plan_de_formacion_container'));
+        $('#videos_plan_de_formacion_container').append('<div class="video_player_wrapper"></div><div class="video_select_container content"><div class="scrollbar cinta_video"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport videos_formacion"><div class="overview overview_videos_formacion"></div></div></div><div class="point_trick"></div>');    
         $('#curso').append('<div id="volver_videos_plan_de_formacion"><img src="images/formacion/volver.png"/></div>');
         var cinta_height = (152)*videos_formacion.length;
         $('.overview_videos_formacion').append('<div class="video_cinta_izquierda" style="height: '+cinta_height+'px"></div><div class="video_select_wrapper"></div><div class="video_cinta_derecha" style="height: '+cinta_height+'px"></div><div class="point_trick"></div>');
@@ -137,6 +138,13 @@ var Formacion = (function(){
             $('#plan_de_formacion_container').remove();
             $('#volver_videos_plan_de_formacion').remove();        
         });
+    }
+    
+    var agregarTextosPlandeFormacion = function agregarTextosPlandeFormacion(elemento){
+      elemento.append('<p>Dedicar la vida al servicio de los demás es la más noble de las vocaciones. Pero, al parecer, hoy eso no es opción para muchos jóvenes chilenos. Existe hay una gran apatía y desencanto con todo lo relacionado con lo público, en especial con la política.</p>');
+      elemento.append('<p>En IdeaPaís, como centro de formación de líderes para el cambio cultural, buscamos incentivar que universitarios y profesionales jóvenes opten por trabajar y colaborar con el mundo público, sea de forma temporal o como vocación de vida, buscando producir el tránsito del voluntariado a un compromiso social permanente.</p>');
+      elemento.append('<p>Para ello, proponemos la participación en Cursos de Formación, por medio de los cuales los jóvenes puedan adquirir herramientas tanto de fondo como técnicas, que les permitan ejercer un liderazgo positivo y que se transformen en agentes de influencia en los principales factores que configuran la cultura.</p>');
+      elemento.append('<p>De esta forma, IdeaPaís contribuye a la gestación de un movimiento social, político y cultural por medio de la formación de jóvenes líderes comprometidos y dispuestos a jugársela por el país, y así promover en distintos lugares y espacios un Desarrollo Humano Integral.</p>');      
     }
     
     var cargarVideo = function cargarVideo(video_select){    

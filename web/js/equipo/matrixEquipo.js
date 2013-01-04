@@ -19,9 +19,15 @@ var Equipo = (function(){
     }
     var initDOM = function initDOM(){
         contenedor.append('<div id="equipo_matrix"></div>');
-        $('#equipo_matrix').append('<div id="equipo"></div>');                            
+        $('#equipo_matrix').append('<div id="equipo"></div>');             
         $('#equipo_matrix').append('<div id="curriculo"></div>');
+        inicioCurriculo($('#curriculo'));
         $('#equipo_matrix').append('<div class="point_trick"></div>');                        
+    }
+    var inicioCurriculo = function inicioCurriculo(elemento){
+      elemento.append('<div id="texto_apertura"></div>');
+      $('#texto_apertura').append('<div class="destacado">Conócenos</div>');
+      $('#texto_apertura').append('<div class="texto_click">Haz clic en las fotos para ver la información de cada integrante.</div>');
     }
     var loadEquipo = function loadEquipo(){
         $.ajax({
